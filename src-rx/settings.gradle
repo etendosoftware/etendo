@@ -1,0 +1,41 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url 'https://repo.futit.cloud/repository/maven-public-releases'
+        }
+        maven {
+            url 'https://repo.futit.cloud/repository/maven-public-snapshots'
+        }
+    }
+}
+
+rootProject.name = 'etendorx'
+
+def dirs = ["modules_gen", "modules", "modules_rx"]
+
+dirs.each {
+    def subDirs = new File(it).listFiles(new FileFilter() {
+        boolean accept(File file) {
+            if (!file.isDirectory()) {
+                return false
+            }
+
+            return new File(file, 'build.gradle').isFile()
+        }
+    })
+    includeDirs(subDirs)
+}
+
+ void includeDirs(def subDirs) {
+    if (subDirs) {
+        println subDirs.toString()
+        subDirs.each { File dir ->
+            include dir.name
+            project (":" + dir.name).projectDir = dir
+        }
+    }
+}
+
+includeDirs('../modules_rx/com.etendorx.demo')

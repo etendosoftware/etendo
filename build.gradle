@@ -1,0 +1,52 @@
+plugins {
+    // Classic
+    id 'java'
+    id 'war'
+    id 'maven-publish'
+    id 'com.etendoerp.gradleplugin' version '1.0.2'
+    // RX
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java-library'
+    id 'groovy'
+}
+
+sourceCompatibility = '11'
+
+etendo {
+}
+
+dependencies {
+    implementation('com.etendoerp.platform:etendo-core:[22.1.0,)') {
+        implementation "org.hibernate:hibernate-core:5.4.2.Final"
+    }
+    //Add other dependencies bellow
+}
+
+// RX
+
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = "${repositoryUrl}"
+        credentials {
+            username = "${repositoryUser}"
+            password = "${repositoryPassword}"
+        }
+    }
+    maven {
+        url = 'https://repo.futit.cloud/repository/etendo-snapshot-jars/'
+    }
+}
+
+dependencies {
+  //  implementation 'org.springframework.boot:spring-boot-starter'
+   // testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
