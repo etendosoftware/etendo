@@ -1,0 +1,22 @@
+repositoryUser=
+repositoryPassword=
+repositoryUrl=https://repo.futit.cloud/repository/etendo-public-jars
+
+org.gradle.parallel=true
+org.gradle.daemon=false
+
+bbdd.rdbms=POSTGRE
+bbdd.driver=org.postgresql.Driver
+bbdd.url=jdbc:postgresql://localhost\:5432
+bbdd.sid=etendo
+bbdd.systemUser=postgres
+bbdd.systemPassword=syspass
+bbdd.user=tad
+bbdd.password=tad
+bbdd.sessionConfig=select update_dateFormat('DD-MM-YYYY')
+
+# Boolean value to generate or not code to RX
+rx.generateCode=true
+
+rx.computedColumns=true
+rx.views=true

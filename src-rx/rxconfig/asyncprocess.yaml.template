@@ -1,0 +1,3 @@
+bootstrap_servers_config: localhost:9092
+application_id_config: async-process-queries
+

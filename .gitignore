@@ -1,4 +1,3 @@
-!.gitignore
 !build.gradle
 !gradle
 !gradlew
@@ -10,3 +9,12 @@
 !.run/**
 !src-rx
 /src-rx/gradle.properties
+/src-rx/rxconfig/*.yaml
+.gradle
+.idea/
+WebContent/
+build/
+gradle.properties
+modules/
+modules_js/
+config
