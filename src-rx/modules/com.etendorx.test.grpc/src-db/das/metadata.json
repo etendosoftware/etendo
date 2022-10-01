@@ -1,0 +1,71 @@
+{
+  "projections": [
+    {
+      "name": "test",
+      "grpc": true,
+      "entities": [
+        {
+          "name": "ADUser",
+          "fields": [
+            {
+              "name": "id"
+            },
+            {
+              "name": "username"
+            }
+          ]
+        },
+        {
+          "name": "PricingAdjustment",
+          "fields": [
+            {
+              "name": "id"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "startingDate"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "entityName": "ADUser",
+      "searches": [
+        {
+          "query": "SELECT u FROM ADUser u WHERE u.username = :username and u.active = :active",
+          "method": "searchByUsername",
+          "params": [
+            {
+              "name": "username",
+              "type": "java.lang.String"
+            },
+            {
+              "name": "active",
+              "type": "java.lang.Boolean"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entityName": "PricingAdjustment",
+      "searches": [
+        {
+          "query": "SELECT p FROM PricingAdjustment p WHERE p.id = :id",
+          "method": "searchOffer",
+          "params": [
+            {
+              "name": "id",
+              "type": "java.lang.String"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
