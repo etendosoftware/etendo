@@ -5,6 +5,18 @@
       "grpc": true,
       "entities": [
         {
+          "name" : "InvoiceLine",
+          "fields" : [
+            {
+              "name": "id"
+            },
+            {
+              "value": "product.name",
+              "name": "product"
+            }
+          ]
+        },
+        {
           "name": "ADUser",
           "fields": [
             {
@@ -12,6 +24,14 @@
             },
             {
               "name": "username"
+            },
+            {
+              "name": "businessPartnerName",
+              "value": "businessPartner.name"
+            },
+            {
+              "name": "businessPartnerCategoryName",
+              "value": "businessPartner.businessPartnerCategory.name"
             }
           ]
         },
@@ -26,6 +46,19 @@
             },
             {
               "name": "startingDate"
+            }
+          ]
+        },
+        {
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id"
+            },
+            {
+              "value": "scheduledDeliveryDate",
+              "name": "datePromised",
+              "type": "java.util.Date"
             }
           ]
         }
@@ -49,6 +82,20 @@
               "type": "java.lang.Boolean"
             }
           ]
+        },
+        {
+          "query": "SELECT u FROM ADUser u WHERE u.id = :id",
+          "fetchAttributes": [
+            "businessPartner",
+            "businessPartner.businessPartnerCategory"
+          ],
+          "method": "searchById",
+          "params": [
+            {
+              "name": "id",
+              "type": "java.lang.String"
+            }
+          ]
         }
       ]
     },
@@ -66,6 +113,22 @@
           ]
         }
       ]
+    },
+    {
+      "entityName": "Order",
+      "searches": [
+        {
+          "query": "SELECT p FROM Order p WHERE p.id = :id",
+          "method": "searchById",
+          "params": [
+            {
+              "name": "id",
+              "type": "java.lang.String"
+            }
+          ]
+        }
+      ]
     }
+
   ]
 }

@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.18'
+    }
+}
+plugins {
+    id 'java'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+    id "com.google.protobuf" version "0.8.18"
+}
+apply from: "grpc.gradle"
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    // Configuration used to store the dependencies that the FAT JAR will contain
+    bundle
+}
+
+dependencies {
+    implementation 'io.github.lognet:grpc-spring-boot-starter:4.6.0'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+}
+
+bootJar {
+    enabled = false
+}
+
+apply plugin: 'idea'
+
+protobuf {
+    generatedFilesBaseDir = "$projectDir/gen"
+}
+
+clean {
+    delete protobuf.generatedFilesBaseDir
+}
+
+idea {
+    module {
+        // proto files and generated Java files are automatically added as
+        // source dirs.
+        // If you have additional sources, add them here:
+        //sourceDirs += file("/path/to/other/sources");
+    }
+}

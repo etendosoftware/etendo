@@ -3,10 +3,13 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
         maven {
+            url 'https://repo.futit.cloud/repository/maven-public-snapshots'
+        }
+        maven {
             url 'https://repo.futit.cloud/repository/maven-public-releases'
         }
         maven {
-            url 'https://repo.futit.cloud/repository/maven-public-snapshots'
+            url 'https://repository-cdn.liferay.com/nexus/content/repositories/liferay-public-releases'
         }
     }
 }
