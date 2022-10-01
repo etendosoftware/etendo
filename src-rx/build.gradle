@@ -13,6 +13,7 @@ sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
+    /*
     maven {
         url = "${repositoryUrl}"
         credentials {
@@ -20,6 +21,7 @@ repositories {
             password = "${repositoryPassword}"
         }
     }
+     */
     maven {
         url = 'https://repo.futit.cloud/repository/etendo-snapshot-jars/'
     }
