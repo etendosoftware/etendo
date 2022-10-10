@@ -1,13 +1,7 @@
-!build.gradle
-!gradle
-!gradlew
-!gradlew.bat
-!gradle/**
-!gradle.properties
-!settings.gradle
-!.run
-!.run/**
-!src-rx
+.DS_Store
+/bin
+/src-rx/logs
+/modules_rx
 /src-rx/gradle.properties
 /src-rx/rxconfig/*.yaml
 .gradle
