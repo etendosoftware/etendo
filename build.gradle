@@ -24,9 +24,6 @@ dependencies {
 }
 
 // RX
-
-sourceCompatibility = '11'
-
 repositories {
     mavenCentral()
     maven {
@@ -39,11 +36,6 @@ repositories {
     maven {
         url = 'https://repo.futit.cloud/repository/etendo-snapshot-jars/'
     }
-}
-
-dependencies {
-  //  implementation 'org.springframework.boot:spring-boot-starter'
-   // testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
