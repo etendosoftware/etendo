@@ -16,6 +16,13 @@ apply from: "grpc.gradle"
 
 repositories {
     mavenCentral()
+    maven {
+        url = "${repositoryUrl}"
+        credentials {
+            username = "${repositoryUser}"
+            password = "${repositoryPassword}"
+        }
+    }
 }
 
 configurations {
