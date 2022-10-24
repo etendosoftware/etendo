@@ -11,6 +11,13 @@ sourceCompatibility = '11'
 repositories {
 	mavenCentral()
     maven {
+        url = "${repositoryUrl}"
+        credentials {
+            username = "${repositoryUser}"
+            password = "${repositoryPassword}"
+        }
+    }
+    maven {
         url = 'https://repo.futit.cloud/repository/etendo-public-jars/'
     }
 }

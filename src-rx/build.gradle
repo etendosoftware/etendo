@@ -4,7 +4,7 @@ plugins {
     id 'java'
     id 'java-library'
     id 'groovy'
-    id 'com.etendorx.gradlepluginrx' version '1.0.0-SNAPSHOT'
+    id 'com.etendorx.gradlepluginrx' version 'latest.integration'
 }
 
 group = 'com.etendorx'
@@ -21,7 +21,7 @@ repositories {
         }
     }
     maven {
-        url = 'https://repo.futit.cloud/repository/etendo-snapshot-jars/'
+        url = 'https://repo.futit.cloud/repository/etendo-public-jars/'
     }
 }
 
