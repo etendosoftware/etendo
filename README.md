@@ -1,15 +1,15 @@
 # Etendo
 This is the development repository of Etendo. <br>
-Etendo is a platform to manage the business flows, adaptable to the needs of the companies. Our mission is creating an adaptable, flexible, composable and scalable software, able to grows without restrictions from the start and offers an intuitive, customizable and complete solution for the companies.
+Etendo is a platform to manage the business flows, adaptable to the needs of the companies. Our mission is creating an adaptable, flexible, composable and scalable software, able to grow without restrictions from the start and offers an intuitive, customizable and complete solution for the companies.
 We are developing an international ERP and a platform that supports business development and scalable growth for our partners and their customers.
 
 To more information visit [etendo.software](https://etendo.software)
 
 ### Requirements
-In this section you can read the [System Requirements](https://docs.etendo.software/en/technical-documentation/etendo-environment/requirements-and-tools/requirements).
+You can read about the system requirements in the [System Requirements](https://docs.etendo.software/en/technical-documentation/etendo-environment/requirements-and-tools/requirements) section of the Etendo Documentation.
 
 ### Etendo Instalation
-Etendo includes the Classic ERP functionalities and Etendo RX, a reactive platform to execute microservices able to interact with the database and perform asynchronous actions.
+Etendo includes the Classic ERP functionalities and Etendo RX, a reactive platform to execute microservices, able to interact with the database and perform asynchronous actions.
 
 1. Clone the repository and move to develop branch
 ```
@@ -20,9 +20,11 @@ git clone  -b develop git@github.com:etendosoftware/etendo.git
 cp gradle.properties.template gradle.properties
 cp src-rx/gradle.properties.template src-rx/gradle.properties
 ```
-2. You can edit `gradle.properties` files updating the variables or use the default values
+2. You can either edit both `gradle.properties` files updating the variables, or use their default values.
 
->The Nexus user and Password is required
+### gradle.properties
+
+>The Nexus user and Password are required
 
 | Variable                     | Description                                                               | Default value |
 |------------------------------|---------------------------------------------------------------------------|---------------|
@@ -35,7 +37,23 @@ cp src-rx/gradle.properties.template src-rx/gradle.properties
 | bbdd.user                    | Database user                                                             | tad           |
 | bbdd.password                | Database password                                                         | tad           |
 
-> Run the gradle tasks with the `--info` or `--debug` flag to log more information.
+### src-rx/gradle.properties
+
+| Variable                     | Description                                                               | Default value                          |
+|------------------------------|---------------------------------------------------------------------------|----------------------------------------|
+| bbdd.rdbms                   | Database manager system                                                   | POSTGRE                                |
+| bbdd.driver                  | Database driver                                                           | org.postgresql.Driver                  |
+| bbdd.url                     | Database url connection                                                   | jdbc:postgresql://localhost\:5432      |
+| bbdd.sid                     | Database name                                                             | etendo                                 |
+| bbdd.systemUser              | Database system user                                                      | postgres                               |
+| bbdd.systemPassword          | Database system password                                                  | syspass                                |
+| bbdd.user                    | Database user                                                             | tad                                    |
+| bbdd.password                | Database password                                                         | tad                                    |
+| bbdd.sessionConfig           | Database session preferences                                              | select update_dateFormat('DD-MM-YYYY') |
+
+> **Note** <br>
+> Variables appearing in both files must have the same value.  
+> Run the gradle tasks with the `--info` or `--debug` flag to see more information.
 
 Change the repositoryURL to etendo-snapshot-jars
 ```
@@ -51,16 +69,8 @@ repositoryPassword=
 ```
 ./gradlew setup
 ```
-4. Change the port to 5432 in the `src-rx/rxconfig/das.yaml` file
-```
-...
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/etendo
-    username: tad
-    password: tad
-...
-```
+> **Warning** <br>
+> If you change the default **bbdd.url** and/or **bbdd.sid**, you must edit the `src-rx/rxconfig/das.yaml` file using the new values.
 
 6. Execute install task to create the initial database and compile the sources
 ```
@@ -70,25 +80,25 @@ spring:
 ```
 ./gradlew smartbuild
 ```
-This task deploying the webContent folder into the tomcat/webapps directory, for that you must set up $CATALINA_HOME environment variable.
+This task deploys the webContent folder into the tomcat/webapps directory, for that you must set up $CATALINA_HOME pointing to the aforementioned path.
 
-6. Execute the rx:genearateEntities task
+6. Execute the rx:generate.entities task
 
 ```
-./gradlew rx:generate.entities --info 
+./gradlew rx:generate.entities 
 ```
 
-7. Run the tomcat and access to [https://localhost:8080/etendo](https://localhost:8080/etendo) to ingress into Etendo ERP
+7. Run Tomcat and access to [https://localhost:8080/etendo](https://localhost:8080/etendo) to get into Etendo ERP
 8. To execute RX services run:
 ```
-./gradlew rx:rx --info
+./gradlew rx:rx 
 ```
 By default the following services must be up:
 - Config
-- auth
-- edge
-- das
-- async
+- Auth
+- Edge
+- Das
+- Async
 
 
 ### Documentation
