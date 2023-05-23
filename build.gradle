@@ -3,7 +3,7 @@ plugins {
     id 'java'
     id 'war'
     id 'maven-publish'
-    id 'com.etendoerp.gradleplugin' version 'latest.integration'
+    id 'com.etendoerp.gradleplugin' version 'latest.release'
     // RX
     id 'org.springframework.boot' version '2.6.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -21,7 +21,7 @@ dependencies {
         implementation "org.hibernate:hibernate-core:5.4.2.Final"
     }
     //Add other dependencies bellow
-    implementation 'com.etendoerp:etendorx:latest.integration'
+    implementation('com.etendoerp:platform.extensions:latest.release')
 }
 
 // RX
