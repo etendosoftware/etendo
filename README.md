@@ -24,18 +24,20 @@ cp src-rx/gradle.properties.template src-rx/gradle.properties
 
 ### gradle.properties
 
->The Nexus user and Password are required
+>The Nexus and GitHub credentials are required. <br>
+>To configure GitHub credentials read [Using repositories on Etendo](https://docs.etendo.software/en/technical-documentation/etendo-environment/requirements-and-tools/developer-tools/use-of-repositories-in-etendo)
 
-| Variable                     | Description                                                               | Default value |
-|------------------------------|---------------------------------------------------------------------------|---------------|
-| nexusUser <br> nexusPassword | Nexus repository credentials, for access to commercial modules            |               |
-| context.name                 | Environment name                                                          | etendo        |
-| bbdd.sid                     | Database name                                                             | etendo        |
-| bbdd.port                    | Database port                                                             | 5432          | 
-| bbdd.systemUser              | Database system user                                                      | postgres      |
-| bbdd.systemPassword          | Database system password                                                  | syspass       |
-| bbdd.user                    | Database user                                                             | tad           |
-| bbdd.password                | Database password                                                         | tad           |
+| Variable                       | Description                                                     | Default value |
+|--------------------------------|-----------------------------------------------------------------|---------------|
+| githubUser <br> githubPassword | GitHub repository credentials, for access to commercial modules |               |
+| nexusUser <br> nexusPassword   | Nexus repository credentials, for access to commercial modules  |               |
+| context.name                   | Environment name                                                | etendo        |
+| bbdd.sid                       | Database name                                                   | etendo        |
+| bbdd.port                      | Database port                                                   | 5432          | 
+| bbdd.systemUser                | Database system user                                            | postgres      |
+| bbdd.systemPassword            | Database system password                                        | syspass       |
+| bbdd.user                      | Database user                                                   | tad           |
+| bbdd.password                  | Database password                                               | tad           |
 
 ### src-rx/gradle.properties
 
