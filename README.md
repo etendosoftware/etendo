@@ -11,16 +11,17 @@ You can read about the system requirements in the [System Requirements](https://
 ### Etendo Instalation
 Etendo includes the Classic ERP functionalities and Etendo RX, a reactive platform to execute microservices, able to interact with the database and perform asynchronous actions.
 
-1. Clone the repository and move to develop branch
+1. Clone the repository
 ```
-git clone  -b develop git@github.com:etendosoftware/etendo.git
+git clone git@github.com:etendosoftware/etendo.git
 ```
-2. To compile and deploy an Etendo instance you have to setup the configuration variables, to do that you have to create a copy of `gradle.properties.template` file in root and src-rx folders.
+2. 
+3. To compile and deploy an Etendo instance you have to setup the configuration variables, to do that you have to create a copy of `gradle.properties.template` file in root and src-rx folders.
 ```bash
 cp gradle.properties.template gradle.properties
 cp src-rx/gradle.properties.template src-rx/gradle.properties
 ```
-2. You can either edit both `gradle.properties` files updating the variables, or use their default values.
+3. You can either edit both `gradle.properties` files updating the variables, or use their default values.
 
 ### gradle.properties
 

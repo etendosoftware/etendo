@@ -11,10 +11,10 @@ sourceCompatibility = '11'
 repositories {
 	mavenCentral()
     maven {
-        url = "${repositoryUrl}"
+        url = "https://maven.pkg.github.com/etendosoftware/etendo_rx"
         credentials {
-            username = "${repositoryUser}"
-            password = "${repositoryPassword}"
+            username = "${githubUser}"
+            password = "${githubToken}"
         }
     }
     maven {
