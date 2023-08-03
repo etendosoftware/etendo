@@ -1,0 +1,36 @@
+plugins {
+    id 'org.springframework.boot' // version '2.6.3'
+    id 'io.spring.dependency-management' // version '1.0.11.RELEASE'
+    id 'java'
+    id 'java-library'
+    id 'groovy'
+    id 'com.etendorx.gradlepluginrx' version 'latest.integration'
+}
+
+group = 'com.etendorx'
+version = '1.0.0'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = "${repositoryUrl}"
+        credentials {
+            username = "${repositoryUser}"
+            password = "${repositoryPassword}"
+        }
+    }
+    maven {
+        url = 'https://repo.futit.cloud/repository/etendo-public-jars/'
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+

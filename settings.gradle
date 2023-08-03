@@ -1,0 +1,57 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url 'https://maven.pkg.github.com/etendosoftware/com.etendoerp.gradleplugin'
+            credentials {
+                username "${githubUser}"
+                password "${githubToken}"
+            }
+        }
+        maven {
+            url 'https://repo.futit.cloud/repository/maven-public-snapshots'
+        }
+    }
+}
+
+// Add modules subprojects
+new File("${this.rootDir}/modules").listFiles().each {
+    if (it.directory && new File(it, 'build.gradle').exists()) {
+        include(":modules:${it.name}")
+    }
+}
+
+include(":rx")
+project(":rx").projectDir = new File("src-rx")
+
+def dirs = [ "modules_rx", "src-rx/modules_gen" ]
+
+dirs.each {
+    def subDirs = new File(it).listFiles(new FileFilter() {
+        boolean accept(File file) {
+            if (!file.isDirectory()) {
+                return false
+            }
+
+            return new File(file, 'build.gradle').isFile()
+        }
+    })
+    includeDirs(subDirs)
+}
+
+void includeDirs(def subDirs) {
+    if (subDirs) {
+        println subDirs.toString()
+        subDirs.each { File dir ->
+            println "include " + dir.name
+            include dir.name
+            var p = project( ":" + dir.name)
+            p.projectDir = dir
+        }
+    }
+}
+
+rootProject.name = "etendo"
+
+

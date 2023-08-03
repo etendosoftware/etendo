@@ -1,0 +1,37 @@
+server:
+  port: 8096
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      hibernate: ERROR
+etendorx:
+  auth:
+    url: http://localhost:8094
+  zapier:
+    url: http://localhost:8091
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        # Login path
+        - id: login_auth_route
+          uri: ${etendorx.auth.url}
+          predicates:
+            - Method=GET,POST
+            - Path=/login
+          filters:
+            - RewritePath=/login, /api/authenticate
+
+        # Zapier secure paths
+        - id: zapier_secure_path_route
+          uri: ${etendorx.zapier.url}
+          predicates:
+            - Method=GET, POST, DELETE
+            - Path=/secure/zapier/**
+          filters:
+            - JwtAuthenticationFilter
+            - RewritePath=/secure/zapier(?<segment>/?.*), $\{segment}
