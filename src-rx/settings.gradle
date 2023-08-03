@@ -1,16 +1,3 @@
-pluginManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-        maven {
-            url 'https://repo.futit.cloud/repository/maven-public-releases'
-        }
-        maven {
-            url 'https://repo.futit.cloud/repository/maven-public-snapshots'
-        }
-    }
-}
-
 rootProject.name = 'etendorx'
 
 def dirs = ["modules_gen", "modules", "modules_rx"]
@@ -37,5 +24,3 @@ dirs.each {
         }
     }
 }
-
-includeDirs('../modules_rx/com.etendorx.demo')
