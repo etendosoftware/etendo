@@ -58,16 +58,6 @@ cp src-rx/gradle.properties.template src-rx/gradle.properties
 > Variables appearing in both files must have the same value.  
 > Run the gradle tasks with the `--info` or `--debug` flag to see more information.
 
-Change the repositoryURL to etendo-snapshot-jars
-```
-...
-org.gradle.jvmargs=-Xmx2g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
-repositoryUrl=https://repo.futit.cloud/repository/etendo-snapshot-jars
-repositoryUser=
-repositoryPassword=
-...
-```
-
 4. Run setup tasks to create the configurations files
 ```
 ./gradlew setup
