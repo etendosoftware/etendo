@@ -12,3 +12,5 @@ gradle.properties
 modules/
 modules_js/
 config
+/src-rx/modules_gen/com.etendorx.entitiesModel/src/
+/src-rx/modules_gen/com.etendorx.entities/src/
