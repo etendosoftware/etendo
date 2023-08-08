@@ -32,3 +32,5 @@ private-key: >
   -----END PRIVATE KEY-----
 
 auth:
+
+token: 
