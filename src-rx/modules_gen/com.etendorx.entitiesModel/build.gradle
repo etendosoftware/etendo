@@ -17,18 +17,15 @@ repositories {
 			password = "${githubToken}"
 		}
 	}
-	maven {
-		url = 'https://repo.futit.cloud/repository/etendo-public-jars/'
-	}
 }
 
 dependencies {
-	compileOnly 'org.projectlombok:lombok:1.18.22'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 	implementation 'com.etendorx:clientrest_core:latest.integration'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+	compileOnly 'org.projectlombok:lombok:1.18.22'
 }
 
 ext {

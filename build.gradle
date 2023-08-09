@@ -12,6 +12,7 @@ plugins {
 }
 
 sourceCompatibility = '11'
+targetCompatibility = '11'
 
 etendo {
 }
@@ -21,7 +22,9 @@ dependencies {
         implementation "org.hibernate:hibernate-core:5.4.2.Final"
     }
     //Add other dependencies bellow
-    implementation('com.etendoerp:platform.extensions:latest.release')
+    implementation('com.etendoerp:platform.extensions:latest.release') {
+        exclude group: 'com.etendoerp', module: 'etendorx'
+    }
     implementation('com.etendoerp:etendorx:latest.release')
 }
 
