@@ -6,7 +6,7 @@ We are developing an international ERP and a platform that supports business dev
 To more information visit [etendo.software](https://etendo.software)
 
 ### Requirements
-You can read about the system requirements in the [System Requirements](https://docs.etendo.software/en/technical-documentation/etendo-environment/requirements-and-tools/requirements) section of the Etendo Documentation.
+You can read about the system requirements in the [System Requirements](https://docs.etendo.software/getting-started/requirements) section of the Etendo Documentation.
 
 ### Etendo Instalation
 Etendo includes the Classic ERP functionalities and Etendo RX, a reactive platform to execute microservices, able to interact with the database and perform asynchronous actions.
@@ -27,7 +27,7 @@ cp src-rx/gradle.properties.template src-rx/gradle.properties
 ### gradle.properties
 
 >The Nexus and GitHub credentials are required. <br>
->To configure GitHub credentials read [Using repositories on Etendo](https://docs.etendo.software/en/technical-documentation/etendo-environment/requirements-and-tools/developer-tools/use-of-repositories-in-etendo)
+>To configure GitHub credentials read [Using repositories on Etendo](https://docs.etendo.software/developer-guide/etendo-classic/getting-started/installation/use-of-repositories-in-etendo/)
 
 | Variable                     | Description                                                     | Default value |
 |------------------------------|-----------------------------------------------------------------|---------------|
