@@ -1,5 +1,6 @@
 server:
   port: 8096
+  host: 0.0.0.0
 
 logging:
   level:
@@ -7,11 +8,16 @@ logging:
       springframework:
         web: DEBUG
       hibernate: ERROR
+
 etendorx:
   auth:
     url: http://localhost:8094
   zapier:
     url: http://localhost:8091
+classic:
+  url: http://localhost:8080
+subapp:
+  url: http://localhost:3000
 
 spring:
   cloud:
@@ -35,3 +41,35 @@ spring:
           filters:
             - JwtAuthenticationFilter
             - RewritePath=/secure/zapier(?<segment>/?.*), $\{segment}
+
+        # Classic path
+        - id: classic_path_route
+          uri: ${classic.url}
+          predicates:
+            - Method=GET, POST, DELETE
+            - Path=/etendo/**
+          filters:
+            - RewritePath=/etendo/(?<segment>.*), /etendo/$\{segment}
+            - RemoveResponseHeader=Location
+
+        # Das path
+        - id: das_path_route
+          uri: ${das.url}
+          predicates:
+            - Method=GET, POST, DELETE
+            - Path=/das/**
+          filters:
+            #- JwtAuthenticationFilter
+            - RewritePath=/das/(?<segment>.*), /$\{segment}
+            - RemoveResponseHeader=Location
+
+        # Subapp debug mode path
+        - id: subapp_debug_mode
+          uri: ${subapp.url}
+          predicates:
+            - Method=GET, POST, DELETE
+            - Path=/subapp/**
+          filters:
+            #- JwtAuthenticationFilter
+            - RewritePath=/subapp/(?<segment>.*), /$\{segment}
+            - RemoveResponseHeader=Location
