@@ -46,7 +46,7 @@ spring:
         - id: classic_path_route
           uri: ${classic.url}
           predicates:
-            - Method=GET, POST, DELETE
+            - Method=GET, POST, DELETE, HEAD, PATCH
             - Path=/etendo/**
           filters:
             - RewritePath=/etendo/(?<segment>.*), /etendo/$\{segment}
@@ -56,7 +56,7 @@ spring:
         - id: das_path_route
           uri: ${das.url}
           predicates:
-            - Method=GET, POST, DELETE
+            - Method=GET, POST, DELETE, HEAD, PATCH
             - Path=/das/**
           filters:
             #- JwtAuthenticationFilter
@@ -67,7 +67,7 @@ spring:
         - id: subapp_debug_mode
           uri: ${subapp.url}
           predicates:
-            - Method=GET, POST, DELETE
+            - Method=GET, POST, DELETE, HEAD, PATCH
             - Path=/subapp/**
           filters:
             #- JwtAuthenticationFilter
