@@ -9,3 +9,5 @@ bbdd.host=localhost
 
 githubUser=
 githubToken=
+nexusUser=
+nexusPassword=
