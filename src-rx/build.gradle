@@ -4,7 +4,7 @@ plugins {
     id 'java'
     id 'java-library'
     id 'groovy'
-    id 'com.etendorx.gradlepluginrx' version 'latest.release'
+    id 'com.etendorx.gradlepluginrx' version '1.1.0'
 }
 
 group = 'com.etendorx'
@@ -19,9 +19,6 @@ repositories {
             username = "${githubUser}"
             password = "${githubToken}"
         }
-    }
-    maven {
-        url = 'https://repo.futit.cloud/repository/etendo-public-jars/'
     }
 }
 

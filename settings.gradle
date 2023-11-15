@@ -41,7 +41,6 @@ void includeDirs(def subDirs) {
     if (subDirs) {
         println subDirs.toString()
         subDirs.each { File dir ->
-            println "include " + dir.name
             include dir.name
             var p = project( ":" + dir.name)
             p.projectDir = dir

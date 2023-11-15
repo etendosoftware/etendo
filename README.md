@@ -6,7 +6,7 @@ We are developing an international ERP and a platform that supports business dev
 To more information visit [etendo.software](https://etendo.software)
 
 ### Requirements
-You can read about the system requirements in the [System Requirements](https://docs.etendo.software/en/technical-documentation/etendo-environment/requirements-and-tools/requirements) section of the Etendo Documentation.
+You can read about the system requirements in the [System Requirements](https://docs.etendo.software/getting-started/requirements) section of the Etendo Documentation.
 
 ### Etendo Instalation
 Etendo includes the Classic ERP functionalities and Etendo RX, a reactive platform to execute microservices, able to interact with the database and perform asynchronous actions.
@@ -15,30 +15,32 @@ Etendo includes the Classic ERP functionalities and Etendo RX, a reactive platfo
 ```
 git clone git@github.com:etendosoftware/etendo.git
 ```
-2. 
-3. To compile and deploy an Etendo instance you have to setup the configuration variables, to do that you have to create a copy of `gradle.properties.template` file in root and src-rx folders.
+
+2. To compile and deploy an Etendo instance you have to setup the configuration variables, to do that you have to create a copy of `gradle.properties.template` file in root and src-rx folders.
 ```bash
 cp gradle.properties.template gradle.properties
 cp src-rx/gradle.properties.template src-rx/gradle.properties
 ```
+
 3. You can either edit both `gradle.properties` files updating the variables, or use their default values.
 
 ### gradle.properties
 
 >The Nexus and GitHub credentials are required. <br>
->To configure GitHub credentials read [Using repositories on Etendo](https://docs.etendo.software/en/technical-documentation/etendo-environment/requirements-and-tools/developer-tools/use-of-repositories-in-etendo)
 
-| Variable                       | Description                                                     | Default value |
-|--------------------------------|-----------------------------------------------------------------|---------------|
-| githubUser <br> githubToken    | GitHub repository credentials, for access to commercial modules |               |
-| nexusUser <br> nexusPassword   | Nexus repository credentials, for access to commercial modules  |               |
-| context.name                   | Environment name                                                | etendo        |
-| bbdd.sid                       | Database name                                                   | etendo        |
-| bbdd.port                      | Database port                                                   | 5432          | 
-| bbdd.systemUser                | Database system user                                            | postgres      |
-| bbdd.systemPassword            | Database system password                                        | syspass       |
-| bbdd.user                      | Database user                                                   | tad           |
-| bbdd.password                  | Database password                                               | tad           |
+>To configure GitHub credentials read [Using repositories on Etendo](https://docs.etendo.software/developer-guide/etendo-classic/getting-started/installation/use-of-repositories-in-etendo/)
+
+| Variable                     | Description                                                     | Default value |
+|------------------------------|-----------------------------------------------------------------|---------------|
+| githubUser <br> githubToken  | GitHub repository credentials, for access to commercial modules |               |
+| nexusUser <br> nexusPassword | Nexus repository credentials, for access to commercial modules  |               |
+| context.name                 | Environment name                                                | etendo        |
+| bbdd.sid                     | Database name                                                   | etendo        |
+| bbdd.port                    | Database port                                                   | 5432          | 
+| bbdd.systemUser              | Database system user                                            | postgres      |
+| bbdd.systemPassword          | Database system password                                        | syspass       |
+| bbdd.user                    | Database user                                                   | tad           |
+| bbdd.password                | Database password                                               | tad           |
 
 ### src-rx/gradle.properties
 
@@ -57,6 +59,15 @@ cp src-rx/gradle.properties.template src-rx/gradle.properties
 > **Note** <br>
 > Variables appearing in both files must have the same value.  
 > Run the gradle tasks with the `--info` or `--debug` flag to see more information.
+
+Change the repositoryURL to etendo-snapshot-jars
+```
+...
+repositoryUrl=
+repositoryUser=
+repositoryPassword=
+...
+```
 
 4. Run setup tasks to create the configurations files
 ```

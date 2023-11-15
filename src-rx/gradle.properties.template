@@ -1,5 +1,4 @@
 org.gradle.parallel=true
-org.gradle.daemon=false
 
 bbdd.rdbms=POSTGRE
 bbdd.driver=org.postgresql.Driver
