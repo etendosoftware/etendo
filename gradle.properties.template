@@ -11,3 +11,6 @@ githubUser=
 githubToken=
 nexusUser=
 nexusPassword=
+
+rx.computedColumns=true
+rx.views=true
