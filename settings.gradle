@@ -9,6 +9,9 @@ pluginManagement {
                 password "${githubToken}"
             }
         }
+        maven {
+            url 'https://repo.futit.cloud/repository/maven-public-snapshots/'
+        }
     }
 }
 
@@ -48,5 +51,4 @@ void includeDirs(def subDirs) {
     }
 }
 rootProject.name = "etendo"
-
 
