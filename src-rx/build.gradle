@@ -38,5 +38,5 @@ ext {
 }
 
 etendorx {
-    version = "${rxVersion}"
+    version = findProperty("rx.version") != null ? findProperty("rx.version") : "latest.release"
 }

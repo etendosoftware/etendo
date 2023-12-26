@@ -24,11 +24,13 @@ etendo {
 ant.lifecycleLogLevel = "INFO"
 
 dependencies {
+/*
     implementation('com.etendoerp.platform:etendo-core:23.2.4') {
         implementation ("org.hibernate:hibernate-core:5.4.2.Final") {
             transitive = false
         }
     }
+*/
     //Add other dependencies bellow
     implementation('com.etendoerp:platform.extensions:latest.release') {
         exclude group: 'com.etendoerp', module: 'etendorx'
@@ -61,5 +63,4 @@ test {
 
 ext {
     version = '0.0.1'
-    rxVersion = "2.0.0-20231221.195443-4"
 }
