@@ -42,7 +42,6 @@ dirs.each {
 
 void includeDirs(def subDirs) {
     if (subDirs) {
-        println subDirs.toString()
         subDirs.each { File dir ->
             include dir.name
             var p = project( ":" + dir.name)

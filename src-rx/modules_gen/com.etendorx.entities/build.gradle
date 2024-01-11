@@ -38,8 +38,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.1.4'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.1'
     implementation 'org.springframework:spring-web'
-    implementation 'com.etendorx:das_core:2.0.0-20231221.012006-1'
-    bundle 'com.etendorx:das_core:2.0.0-20231221.012006-1'
+    implementation 'com.etendorx:das_core:' + project.property('rx.version')
+    bundle 'com.etendorx:das_core:' + project.property('rx.version')
     implementation 'com.jayway.jsonpath:json-path:2.8.0'
 
     if(project.hasProperty('data-rest.enabled') && project.property('data-rest.enabled') == "true") {
