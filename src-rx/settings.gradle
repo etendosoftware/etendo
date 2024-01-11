@@ -23,3 +23,13 @@ dirs.each {
         }
     }
 }
+
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url 'https://repo.futit.cloud/repository/maven-public-snapshots/'
+        }
+    }
+}

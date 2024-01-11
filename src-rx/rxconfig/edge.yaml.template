@@ -56,7 +56,7 @@ spring:
         - id: das_path_route
           uri: ${das.url}
           predicates:
-            - Method=GET, POST, DELETE, HEAD, PATCH
+            - Method=GET, POST, DELETE, HEAD, PATCH, PUT
             - Path=/das/**
           filters:
             #- JwtAuthenticationFilter

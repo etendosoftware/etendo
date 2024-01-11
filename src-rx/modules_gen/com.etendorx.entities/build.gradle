@@ -1,20 +1,28 @@
 plugins {
-	id 'org.springframework.boot'
-	id 'io.spring.dependency-management'
-	id 'java'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+    id 'java'
+    id("org.springdoc.openapi-gradle-plugin") version "1.7.0"
 }
 
-group = 'com.etendorx'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+group = 'com.etendorx.entities'
+version = "1.0.0"
+sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
-	mavenCentral()
+    mavenCentral()
     maven {
         url = "https://maven.pkg.github.com/etendosoftware/etendo_rx"
         credentials {
             username = "${githubUser}"
             password = "${githubToken}"
+        }
+    }
+    maven {
+        url = "https://repo.futit.cloud/repository/etendo-snapshot-jars"
+        credentials {
+            username = "${nexusUser}"
+            password = "${nexusPassword}"
         }
     }
 }
@@ -27,15 +35,20 @@ configurations {
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'jakarta.persistence:jakarta.persistence-api:2.2.3'
-    implementation 'org.hibernate:hibernate-core:5.6.4.Final'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.1.4'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.1'
-    implementation 'org.springframework.data:spring-data-rest-core:3.6.1'
-    implementation 'com.etendorx:das_core:latest.integration'
-    bundle ('com.etendorx:das_core:latest.integration') {
-        exclude group:'*', module:"*"
+    implementation 'org.springframework:spring-web'
+    implementation 'com.etendorx:das_core:' + project.property('rx.version')
+    bundle 'com.etendorx:das_core:' + project.property('rx.version')
+    implementation 'com.jayway.jsonpath:json-path:2.8.0'
+
+    if(project.hasProperty('data-rest.enabled') && project.property('data-rest.enabled') == "true") {
+        implementation 'org.springframework.data:spring-data-rest-core:4.1.5'
     }
+
+    // openapi
+    implementation 'org.springdoc:springdoc-openapi-starter-common:2.2.0'
+
 }
 
 bootJar {
@@ -43,7 +56,7 @@ bootJar {
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 sourceSets {
@@ -53,6 +66,7 @@ sourceSets {
             srcDirs 'src/main/entities'
             srcDirs 'src/main/jparepo'
             srcDirs 'src/main/projections'
+            srcDirs 'src/main/mappings'
         }
     }
 }

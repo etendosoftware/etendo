@@ -1,15 +1,15 @@
 plugins {
-    id 'org.springframework.boot' // version '2.6.3'
-    id 'io.spring.dependency-management' // version '1.0.11.RELEASE'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
     id 'java'
     id 'java-library'
     id 'groovy'
-    id 'com.etendorx.gradlepluginrx' version '1.1.0'
+    id 'com.etendorx.gradlepluginrx' version '1.2.2-SNAPSHOT'
 }
 
 group = 'com.etendorx'
 version = '1.0.0'
-sourceCompatibility = '11'
+sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
@@ -20,14 +20,23 @@ repositories {
             password = "${githubToken}"
         }
     }
-}
-
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    maven {
+        url = "https://repo.futit.cloud/repository/etendo-snapshot-jars"
+        credentials {
+            username = "${nexusUser}"
+            password = "${nexusPassword}"
+        }
+    }
 }
 
 test {
     useJUnitPlatform()
 }
 
+ext {
+    version = '0.0.1'
+}
+
+etendorx {
+    version = findProperty("rx.version") != null ? findProperty("rx.version") : "latest.release"
+}

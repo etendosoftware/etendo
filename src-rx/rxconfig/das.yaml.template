@@ -24,3 +24,6 @@ logging:
         type:
           descriptor: # Shows each hibernate SQL query
             sql: WARN
+
+scan:
+  basePackage:

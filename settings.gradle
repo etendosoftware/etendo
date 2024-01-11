@@ -9,6 +9,9 @@ pluginManagement {
                 password "${githubToken}"
             }
         }
+        maven {
+            url 'https://repo.futit.cloud/repository/maven-public-snapshots/'
+        }
     }
 }
 
@@ -39,7 +42,6 @@ dirs.each {
 
 void includeDirs(def subDirs) {
     if (subDirs) {
-        println subDirs.toString()
         subDirs.each { File dir ->
             include dir.name
             var p = project( ":" + dir.name)
@@ -48,5 +50,4 @@ void includeDirs(def subDirs) {
     }
 }
 rootProject.name = "etendo"
-
 
