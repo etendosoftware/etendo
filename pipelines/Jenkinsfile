@@ -138,6 +138,9 @@ spec:
               githubUser=${GITHUB_USER}\n
               githubToken=${GITHUB_TOKEN}\n
               allow.root=true\n
+              rx.computedColumns=true\n
+              rx.views=true\n
+              rx.version=2.0.0-SNAPSHOT\n
               org.gradle.parallel=false\n
               org.gradle.daemon=false\n
               org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8\" > gradle.properties
@@ -206,6 +209,7 @@ spec:
               bbdd.user=${BBDD_USER}\n
               bbdd.password=${BBDD_PASSWORD}\n
               bbdd.sessionConfig=select update_dateFormat('DD-MM-YYYY')\n
+              rx.version=2.0.0-SNAPSHOT\n
               rx.generateCode=true\n
               rx.computedColumns=true\n
               rx.views=true\" > gradle.properties
