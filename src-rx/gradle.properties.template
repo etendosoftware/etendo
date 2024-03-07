@@ -12,3 +12,5 @@ bbdd.sessionConfig=select update_dateFormat('DD-MM-YYYY')
 
 # Boolean value to generate or not code to RX
 rx.generateCode=true
+rx.computedColumns=true
+rx.views=true
