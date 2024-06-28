@@ -20,7 +20,7 @@ etendo {
 ant.lifecycleLogLevel = "INFO"
 
 dependencies {
-    implementation('com.etendoerp.platform:etendo-core:[22.1.0,24.2.0)') {
+    implementation('com.etendoerp.platform:etendo-core:[22.1.0,24.3.0)') {
         implementation "org.hibernate:hibernate-core:5.4.2.Final"
     }
     //Add other dependencies bellow
